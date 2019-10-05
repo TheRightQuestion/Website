@@ -14,9 +14,10 @@ jobs:
             - run:
                   name: Install Dependencies
                   command: |
-                    gem install bundler -v 2.0.2
                     npm install
                     gem install jekyll
+                    cd ~/repo/website
+                    bundle install
             - save_cache:
                   key: v1-npm-deps-{{ checksum "package-lock.json" }}
                   paths:
