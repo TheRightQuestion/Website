@@ -15,7 +15,6 @@ jobs:
                   name: Install Dependencies
                   command: |
                     npm install
-                    npm install -g firebase-tools
             - save_cache:
                   key: v1-npm-deps-{{ checksum "package-lock.json" }}
                   paths:
@@ -29,4 +28,4 @@ jobs:
                   name: Firebase Deploy
                   command: |
                     cd ~/repo
-                    firebase deploy --token=$FIREBASE_TOKEN --non-interactive
+                    ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive
