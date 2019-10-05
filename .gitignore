@@ -63,3 +63,10 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+# jekyll
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor

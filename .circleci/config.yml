@@ -9,26 +9,24 @@ jobs:
             # Download and cache dependencies
             - restore_cache:
                   keys:
-                      - v1-dependencies-{{ checksum "package.json" }}
+                      - v1-dependencies-{{ checksum "package-lock.json" }}
                       - v1-dependencies-
             - run:
                   name: Install Dependencies
                   command: |
-                    npm install
-                    gem install jekyll
-                    cd ~/repo/website
+                    gem list bundler
+                    bundle --version
                     bundle install
+                    npm install
             - save_cache:
-                  key: v1-npm-deps-{{ checksum "package-lock.json" }}
+                  key: v1-dependencies-{{ checksum "package-lock.json" }}
                   paths:
                       - ./node_modules
             - run:
                   name: Build
                   command: |
-                    cd ~/repo/website
                     bundle exec jekyll build --verbose
             - run:
                   name: Firebase Deploy
-                  command: |
-                    cd ~/repo
+                  command:
                     ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive
