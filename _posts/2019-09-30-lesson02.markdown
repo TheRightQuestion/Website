@@ -2,12 +2,28 @@
 layout: assignment
 title:  "Memory Tables"
 subtitle: "And More!"
-date:   2019-09-27 00:00:00 -0700
+date:   2019-09-30 00:00:00 -0700
 tags: ["lesson02", "introassignment"]
 video: RbmrQcbo92w
 reference: 
 categories: introassignments
 ---
+
+# Key Takeways
+
+# Video Addendum
+
+# Assignment
+* Work through the memory tables for both of your past assignments from Lesson01.
+* For each of the code samples below:
+    0. **DO NOT RUN THE CODE YET**
+    1. Work through the memory table.
+    2. Write what your program is doing in a sentence.
+    3. Write what you think the program will output in console.
+    4. Run the code in a new Repl to check your memory tables & outputs.
+ * Create a new Repl where you request 2 numbers from the user, and then display their sum.
+
+# Code Samples
 
 {% capture sample-0 %}
 
@@ -72,21 +88,6 @@ int main() {
 
 {% endcapture %}
 
-# Key Takeways
-
-# Video Addendum
-
-# Assignment
-* Work through the memory tables for both of your past assignments from Lesson01.
-* For each of the code samples below:
-    0. **DO NOT RUN THE CODE YET**
-    1. Work through the memory table.
-    2. Write what your program is doing in a sentence.
-    3. Write what you think the program will output in console.
-    4. Run the code in a new Repl to check your memory tables & outputs.
- * Create a new Repl where you request 2 numbers from the user, and then display their sum.
-
-# Code Samples
 <details><summary>Sample 0</summary>{{sample-0 | markdownify }}</details>
 <details><summary>Sample 1</summary>{{sample-1 | markdownify }}</details>
 <br />
