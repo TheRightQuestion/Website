@@ -1,0 +1,36 @@
+---
+layout: assignment
+title:  "Coding"
+subtitle: "Communicating with the Computer"
+date:   2018-09-23 00:00:00 -0700
+tags: ["lesson00", "introassignment"]
+video: c8ikA6zw1dI
+reference: 
+categories: introassignments
+---
+# Key Takeways
+* Errors are the way the computer communicates with you regarding your code.
+* You're never going to stop making errors, its a normal part of programming.
+* To solve the errors, just scroll to the top, and try fixing __only__ the first one.
+  * Just hit the run button to check if you have fixed it!
+
+# Video Addendum
+
+You may have noticed that there was a `\n` at the end of the example on Repl.
+That is how you add a new line (enter key in MS Word). Try adding and removing `\n` and seeing you notice a difference. `std::endl` can also be used to print out a new line. In general, we prefer using
+```cpp
+std::cout << "Hello world";
+std::cout << std::endl;
+```
+over using
+```cpp
+std::cout << "Hello world\n";
+```
+
+# Assignment
+* Sign up for a [Repl](https://repl.it/repls) account.
+  * You'll be able create and store all of your repls so you don't lose track of them.
+* Sign up for the [Slack Community](https://forms.gle/Jx3TBiqDFkqB4CEj6).
+* In a new Repl, write some code where you print some fun facts about yourself.
+
+{% include end-checklist.markdown %}
