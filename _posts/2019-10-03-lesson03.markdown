@@ -1,0 +1,59 @@
+---
+layout: assignment
+title:  "Variable Sizes"
+subtitle: "And more types!"
+date:   2019-10-03 00:00:00 -0700
+tags: ["lesson03", "introassignment"]
+video: ULpbUtqboaY
+reference: 
+categories: introassignments
+---
+
+# Key Takeways
+
+Type|Size (in bytes)|Min|Max
+---|---|---|---
+bool | 1 | 0 | 1
+char | 1 | `TBD` | `TBD`
+short | 2 | -2<sup>15</sup> | 2<sup>15</sup>-1
+unsigned short | 2 | 0 | 2<sup>16</sup>-1
+float | 4 | `TBD` | `TBD`
+int | 4 | -2<sup>31</sup> | 2<sup>31</sup>-1
+unsigned int | 4 | 0 | 2<sup>31</sup>-1
+long | 4 | -2<sup>31</sup> | 2<sup>31</sup>-1
+unsigned long | 4 | 0 | 2<sup>31</sup>-1
+long long | 8 | -2<sup>63</sup> | 2<sup>63</sup>-1
+unsigned long long | 8 | 0 | 2<sup>64</sup>-1
+
+# Video Addendum
+
+# Assignment
+* Create memory tables for adder assignment from Lesson02. Make sure you use different inputs as test cases in this memory table.
+* Find two **whole number** values for which your calculator doesn't work.
+  * Can you change the code to make it work for those values? Why or why not?
+  * Are there two more values for this new calculator doesn't work? Why or why not?
+* What is 2<sup>64</sup>? Try using an online calculator to check and then write it down by hand.
+That's how large an `unsigned long long` can get!
+* For each of the following types, come up with 5 real world examples when you would use them. Write these down along with a sentance for each explaining why that type is appropriate.
+  * bool
+  * unsigned short
+  * int
+  * unsigned long long
+* Fill out the table until you can recognize the values off the tip of your tongue. **NO CALCULATORS**
+
+Short hand | Full Value |
+----|----|
+2<sup>0</sup> | 
+2<sup>1</sup> | 
+2<sup>2</sup> | 
+2<sup>3</sup> | 
+2<sup>4</sup> | 
+2<sup>5</sup> | 
+2<sup>6</sup> | 
+2<sup>7</sup> | 
+2<sup>8</sup> | 
+2<sup>9</sup> | 
+2<sup>10</sup> |  
+
+
+{% include end-checklist.markdown %}
