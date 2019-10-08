@@ -19,9 +19,9 @@ short | 2 | -2<sup>15</sup> | 2<sup>15</sup>-1
 unsigned short | 2 | 0 | 2<sup>16</sup>-1
 float | 4 | `TBD` | `TBD`
 int | 4 | -2<sup>31</sup> | 2<sup>31</sup>-1
-unsigned int | 4 | 0 | 2<sup>31</sup>-1
+unsigned int | 4 | 0 | 2<sup>32</sup>-1
 long | 4 | -2<sup>31</sup> | 2<sup>31</sup>-1
-unsigned long | 4 | 0 | 2<sup>31</sup>-1
+unsigned long | 4 | 0 | 2<sup>32</sup>-1
 long long | 8 | -2<sup>63</sup> | 2<sup>63</sup>-1
 unsigned long long | 8 | 0 | 2<sup>64</sup>-1
 
