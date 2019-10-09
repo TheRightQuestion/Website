@@ -41,7 +41,6 @@ jobs:
         steps:
             - attach_workspace:
                 at: ~/repo
-            - run: cd /tmp/repo
             - run:
                   name: Firebase Deploy
                   command:
