@@ -1,12 +1,14 @@
-version: 2
+version: 2.1
+
+executors:
+  my-executor:
+    docker:
+      - image: circleci/ruby:latest-node
+    working_directory: ~/repo
+
 jobs:
     build:
-        filters:
-            branches:
-                ignore: master
-        docker:
-            - image: circleci/ruby:latest-node
-        working_directory: ~/repo
+        executor: my-executor
         steps:
             - checkout
             # Download and cache dependencies
@@ -29,36 +31,28 @@ jobs:
                   name: Build
                   command: |
                     bundle exec jekyll build --verbose
+            - persist_to_workspace:
+                root: ~/repo
+                # Must be relative path from root
+                paths:
+                    - ./
     deploy:
-        filters:
-            branches:
-                only: master
-        docker:
-            - image: circleci/ruby:latest-node
-        working_directory: ~/repo
+        executor: my-executor
         steps:
-            - checkout
-            # Download and cache dependencies
-            - restore_cache:
-                  keys:
-                      - v3-cache-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
-                      - v3-cache-
-            - run:
-                  name: Install Dependencies
-                  command: |
-                    bundle install
-                    npm install
-                    sudo npm install -g pug
-            - save_cache:
-                  key: v23cache-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
-                  paths:
-                      - ./node_modules
-                      - ./vendor/bundle
-            - run:
-                  name: Build
-                  command: |
-                    bundle exec jekyll build
+            - attach_workspace:
+                at: ~/repo
             - run:
                   name: Firebase Deploy
                   command:
                     ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
