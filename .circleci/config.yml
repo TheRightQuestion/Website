@@ -9,6 +9,7 @@ jobs:
             # Download and cache dependencies
             - restore_cache:
                   keys:
+                      - v1-dependencies-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
                       - v1-dependencies-{{ checksum "package-lock.json" }}
                       - v1-dependencies-
             - run:
@@ -18,7 +19,7 @@ jobs:
                     npm install
                     sudo npm install -g pug
             - save_cache:
-                  key: v1-dependencies-{{ checksum "package-lock.json" }}
+                  key: v1-dependencies-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
                   paths:
                       - ./node_modules
                       - vendor/bundle
