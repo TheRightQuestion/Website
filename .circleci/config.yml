@@ -38,6 +38,7 @@ jobs:
                 paths:
                     - repo
     deploy:
+        executor: my-executor
         steps:
             - attach_workspace:
                 at: /tmp/repo
