@@ -12,7 +12,6 @@ jobs:
             # Download and cache dependencies
             - restore_cache:
                   keys:
-                      - v2-cache-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
                       - v3-cache-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
                       - v3-cache-
             - run:
