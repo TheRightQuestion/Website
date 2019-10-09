@@ -91,5 +91,3 @@ int main() {
 <details><summary>Sample 0</summary>{{sample-0 | markdownify }}</details>
 <details><summary>Sample 1</summary>{{sample-1 | markdownify }}</details>
 <br />
-
-{% include end-checklist.markdown %}

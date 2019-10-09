@@ -54,6 +54,3 @@ Short hand | Full Value |
 2<sup>8</sup> | 
 2<sup>9</sup> | 
 2<sup>10</sup> |  
-
-
-{% include end-checklist.markdown %}

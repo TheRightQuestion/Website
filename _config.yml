@@ -30,9 +30,12 @@ github_username:  therightquestion
 youtube_username:  "UCIOX0M3EwLkyta9OqHBehpg"
 
 # Build settings
+jekyll-pug:
+  minify: true
+
 theme: minima
 plugins:
-  - jekyll-feed
+  - jekyll-pug
 
 # Exclude from processing.
 # The following items will not be processed, by default.

@@ -1,0 +1,9 @@
+doctype html
+html(lang="{{ page.lang | default: site.lang | default: 'en' }}")
+  | {%- include head.html -%}
+  body
+    | {%- include header -%}
+    main.page-content(aria-label='Content')
+      .wrapper
+        | {{ content }}
+    | {%- include footer -%}
