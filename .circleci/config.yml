@@ -17,10 +17,7 @@ jobs:
             - run:
                   name: Install Dependencies
                   command: |
-                    ls -a ./
                     bundle install
-                    ls -a ./
-                    ls $BUNDLE_PATH
                     npm install
                     sudo npm install -g pug
             - save_cache:
@@ -44,25 +41,23 @@ jobs:
             # Download and cache dependencies
             - restore_cache:
                   keys:
-                      - v2-cache-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
-                      - v2-cache-{{ checksum "package-lock.json" }}
-                      - v2-cache-
+                      - v3-cache-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
+                      - v3-cache-
             - run:
                   name: Install Dependencies
                   command: |
-                    ls $BUNDLE_PATH
                     bundle install
                     npm install
                     sudo npm install -g pug
             - save_cache:
-                  key: v2-cache-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
+                  key: v23cache-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
                   paths:
                       - ./node_modules
-                      - $BUNDLE_PATH
+                      - ./vendor/bundle
             - run:
                   name: Build
                   command: |
-                    bundle exec jekyll build --verbose
+                    bundle exec jekyll build
             - run:
                   name: Firebase Deploy
                   command:
