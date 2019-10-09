@@ -28,6 +28,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://therightquestion.firebaseapp.com"
 github_username:  therightquestion
 youtube_username:  "UCIOX0M3EwLkyta9OqHBehpg"
+google_analytics: "UA-149686546-1"
 
 # Build settings
 theme: minima
