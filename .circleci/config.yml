@@ -24,7 +24,7 @@ jobs:
                   key: v2-cache-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
                   paths:
                       - ./node_modules
-                      - ./vendor/bundle
+                      - $BUNDLE_PATH
             - run:
                   name: Build
                   command: |
