@@ -1,0 +1,25 @@
+---
+layout: default
+---
+article.post.h-entry(itemscope='', itemtype='http://schema.org/BlogPosting')
+  header.post-header
+    h1.post-title.p-name(itemprop='name headline')
+      | {{ page.title }} 
+      span.post-subtitle {{ page.subtitle | escape}}
+    p.post-meta
+      time.dt-published(datetime='{{ page.date | date_to_xmlschema }}', itemprop='datePublished')
+        | {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        | {{ page.date | date: date_format }}
+      | {%- if page.author -%}
+      span(itemprop='author', itemscope='', itemtype='http://schema.org/Person')
+        span.p-author.h-card(itemprop='name') {{ page.author }}
+      | {%- endif -%}
+  .post-content.e-content(itemprop='articleBody')
+    div
+      h1 Video
+      iframe(width='560', height='315', src='https://www.youtube.com/embed/{{ page.video }}', frameborder='0', allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture', allowfullscreen='')
+    | {{ content }}
+    | {% capture my_include %}{% include end-checklist.html %}{% endcapture %}
+    | {{ my_include | markdownify }}
+
+  a.u-url(href='{{ page.url | relative_url }}', hidden='')

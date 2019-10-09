@@ -1,0 +1,31 @@
+footer.site-footer.h-card
+  data.u-url(href="{{ relative_url }}")
+  .wrapper
+    h2.footer-heading {{ site.title | escape }}
+    .footer-col-wrapper
+      .footer-col.footer-col-1
+        ul.contact-list
+          li.p-name
+          |           {%- if site.email -%}
+          li
+            a(href='mailto:{{ site.email }}')
+              svg.svg-icon
+                use(xlink:href="{{ '/assets/minima-social-icons.svg#email' | relative_url }}")
+              span.u-email {{ site.email }}
+          |           {%- endif -%}
+          |           {%- if site.github_username -%}
+          li
+            a(href='https://github.com/{{ site.github_username| cgi_escape | escape }}')
+              svg.svg-icon
+                use(xlink:href="{{ '/assets/minima-social-icons.svg#github' | relative_url }}")
+              span.username Github
+          |           {%- endif -%}
+          |           {%- if site.youtube_username -%}
+          li
+            a(href='https://www.youtube.com/channel/{{ site.youtube_username| cgi_escape | escape  }}')
+              svg.svg-icon
+                use(xlink:href="{{ '/assets/minima-social-icons.svg#youtube' | relative_url }}")
+              span.username YouTube
+          |           {%- endif -%}
+      .footer-col.footer-col-3
+        p {{- site.description | escape -}}

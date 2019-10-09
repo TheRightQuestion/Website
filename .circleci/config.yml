@@ -14,18 +14,28 @@ jobs:
             - run:
                   name: Install Dependencies
                   command: |
-                    gem list bundler
-                    bundle --version
                     bundle install
                     npm install
+                    sudo npm install -g pug
             - save_cache:
                   key: v1-dependencies-{{ checksum "package-lock.json" }}
                   paths:
                       - ./node_modules
+                      - vendor/bundle
             - run:
                   name: Build
                   command: |
                     bundle exec jekyll build --verbose
+    deploy:
+        machine:
+            enabled: true
+        requires:
+            - build
+        branches:
+            only:
+                - master
+        working_directory: ~/repo
+        steps:
             - run:
                   name: Firebase Deploy
                   command:

@@ -29,5 +29,3 @@ How much will making 1 quart of guacamole cost her? 1 gallon?
 * Create a new repl for each of the problems above and solve them using C++.
     * Be extra aware of the variable names and types you use.
     * Did your code produce the same answers?
-
-{% include end-checklist.markdown %}

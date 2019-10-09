@@ -1,0 +1,23 @@
+---
+layout: default
+---
+.home
+  | {%- if page.title -%}
+  h1.page-heading {{ page.title }}
+  | {%- endif -%}
+  | {{ content }}
+  | {%- if site.categories.introassignments.size > 0 -%}
+  h2.post-list-heading Intro Assignments
+  ul.post-list
+    | {%- for post in site.categories.introassignments -%}
+    li
+      | {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+      span.post-meta {{ post.date | date: date_format }}
+      h3
+        a.post-link(href='{{ post.url | relative_url }}')
+          | {{ post.title | escape }} | {{ post.subtitle }}
+      | {%- if site.show_excerpts -%}
+      | {{ post.excerpt }}
+      | {%- endif -%}
+    | {%- endfor -%}
+  | {%- endif -%}

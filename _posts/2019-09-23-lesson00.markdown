@@ -32,5 +32,3 @@ std::cout << "Hello world\n";
   * You'll be able create and store all of your repls so you don't lose track of them.
 * Sign up for the [Slack Community](https://forms.gle/Jx3TBiqDFkqB4CEj6).
 * In a new Repl, write some code where you print some fun facts about yourself.
-
-{% include end-checklist.markdown %}

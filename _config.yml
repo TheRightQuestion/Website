@@ -31,9 +31,12 @@ youtube_username:  "UCIOX0M3EwLkyta9OqHBehpg"
 google_analytics: "UA-149686546-1"
 
 # Build settings
+jekyll-pug:
+  minify: true
+
 theme: minima
 plugins:
-  - jekyll-feed
+  - jekyll-pug
 
 # Exclude from processing.
 # The following items will not be processed, by default.
