@@ -17,7 +17,7 @@ jobs:
                     gem list bundler
                     bundle install
                     npm install
-                    npm install -g pug
+                    sudo npm install -g pug
             - save_cache:
                   key: v1-dependencies-{{ checksum "package-lock.json" }}
                   paths:
@@ -26,6 +26,14 @@ jobs:
                   name: Build
                   command: |
                     bundle exec jekyll build --verbose
+    deploy:
+        requires:
+            - build
+        branches:
+            only:
+                - master
+        working_directory: ~/repo
+        steps:
             - run:
                   name: Firebase Deploy
                   command:
