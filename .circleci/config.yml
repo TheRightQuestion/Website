@@ -13,7 +13,8 @@ jobs:
             - restore_cache:
                   keys:
                       - v2-cache-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
-                      - v2-cache-
+                      - v3-cache-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
+                      - v3-cache-
             - run:
                   name: Install Dependencies
                   command: |
@@ -24,7 +25,7 @@ jobs:
                     npm install
                     sudo npm install -g pug
             - save_cache:
-                  key: v2-cache-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
+                  key: v3-cache-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
                   paths:
                       - ./node_modules
                       - ./vendor/bundle
