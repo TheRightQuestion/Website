@@ -17,6 +17,7 @@ jobs:
             - run:
                   name: Install Dependencies
                   command: |
+                    ls -a ./
                     ls $BUNDLE_PATH
                     bundle install
                     npm install
@@ -25,7 +26,7 @@ jobs:
                   key: v2-cache-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
                   paths:
                       - ./node_modules
-                      - $BUNDLE_PATH
+                      - ./vendor/bundle
             - run:
                   name: Build
                   command: |
