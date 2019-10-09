@@ -12,16 +12,16 @@ jobs:
             # Download and cache dependencies
             - restore_cache:
                   keys:
-                      - v1-dependencies-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
-                      - v1-dependencies-
+                      - v2-cache-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
+                      - v2-cache-
             - run:
                   name: Install Dependencies
                   command: |
-                    bundle install --path ./vendor/bundle
+                    bundle install --path vendor/bundle
                     npm install
                     sudo npm install -g pug
             - save_cache:
-                  key: v1-dependencies-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
+                  key: v2-cache-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
                   paths:
                       - ./node_modules
                       - ./vendor/bundle
@@ -41,9 +41,9 @@ jobs:
             # Download and cache dependencies
             - restore_cache:
                   keys:
-                      - v1-dependencies-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
-                      - v1-dependencies-{{ checksum "package-lock.json" }}
-                      - v1-dependencies-
+                      - v2-cache-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
+                      - v2-cache-{{ checksum "package-lock.json" }}
+                      - v2-cache-
             - run:
                   name: Install Dependencies
                   command: |
@@ -51,7 +51,7 @@ jobs:
                     npm install
                     sudo npm install -g pug
             - save_cache:
-                  key: v1-dependencies-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
+                  key: v2-cache-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
                   paths:
                       - ./node_modules
                       - $BUNDLE_PATH
