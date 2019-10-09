@@ -1,6 +1,9 @@
 version: 2
 jobs:
     build:
+        filters:
+            branches:
+                ignore: master
         docker:
             - image: circleci/ruby:latest-node
         working_directory: ~/repo
@@ -27,15 +30,35 @@ jobs:
                   command: |
                     bundle exec jekyll build --verbose
     deploy:
-        machine:
-            enabled: true
-        requires:
-            - build
-        branches:
-            only:
-                - master
+        filters:
+            branches:
+                only: master
+        docker:
+            - image: circleci/ruby:latest-node
         working_directory: ~/repo
         steps:
+            - checkout
+            # Download and cache dependencies
+            - restore_cache:
+                  keys:
+                      - v1-dependencies-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
+                      - v1-dependencies-{{ checksum "package-lock.json" }}
+                      - v1-dependencies-
+            - run:
+                  name: Install Dependencies
+                  command: |
+                    bundle install --path vendor/bundle
+                    npm install
+                    sudo npm install -g pug
+            - save_cache:
+                  key: v1-dependencies-{{ checksum "package-lock.json" }}-{{ checksum "Gemfile.lock"}}
+                  paths:
+                      - ./node_modules
+                      - vendor/bundle
+            - run:
+                  name: Build
+                  command: |
+                    bundle exec jekyll build --verbose
             - run:
                   name: Firebase Deploy
                   command:
