@@ -4,13 +4,12 @@ executors:
   my-executor:
     docker:
       - image: circleci/ruby:latest-node
-    working_directory: /tmp
+    working_directory: ~/repo
 
 jobs:
     build:
         executor: my-executor
         steps:
-            - run: mkdir -p repo && cd repo
             - checkout
             # Download and cache dependencies
             - restore_cache:
@@ -33,15 +32,15 @@ jobs:
                   command: |
                     bundle exec jekyll build --verbose
             - persist_to_workspace:
-                root: /tmp
+                root: ~/repo
                 # Must be relative path from root
                 paths:
-                    - repo
+                    - ./
     deploy:
         executor: my-executor
         steps:
             - attach_workspace:
-                at: /tmp/repo
+                at: ~/repo
             - run: cd /tmp/repo
             - run:
                   name: Firebase Deploy
