@@ -18,8 +18,9 @@ jobs:
                   name: Install Dependencies
                   command: |
                     ls -a ./
-                    ls $BUNDLE_PATH
                     bundle install
+                    ls -a ./
+                    ls $BUNDLE_PATH
                     npm install
                     sudo npm install -g pug
             - save_cache:
