@@ -26,7 +26,7 @@ For more help see: (Khan Academy)[https://www.khanacademy.org/computing/computer
     * **After** you've finished that, upgrade your calulator again to ask it for 3 numbers and 2 operator. Be sure to also print out the result not only at the end, but after each operator!
     * What about 4 numbers and 3 operators?
     * What about 5 numbers and 4 operators?
-    * Did you notice any patterns as to what you were doing? Try writing down what you think the pattern is.
+    * Did you notice any patterns as to what you were doing? Try describing what you think the pattern is (This means write it down in complete sentences!).
     * Note: Do **NOT** worry about order of operations.
 
 # Code Samples
