@@ -1,0 +1,93 @@
+---
+layout: assignment
+title:  "Conditionals"
+subtitle: "Using bools and scope"
+date:   2019-10-14 00:00:00 -0700
+tags: ["lesson04", "introassignment"]
+video: r8bDyc6tQQM
+reference: 
+categories: introassignments
+---
+
+# Key Takeways
+
+# Video Addendum
+the `%` symbol is used for the mod operator. `a % b` would return the remainder after a is divided by b. 
+For example: `14 % 5` is `4`. and `3 % 10` is is `3`. 
+
+For more help see: (Khan Academy)[https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/what-is-modular-arithmetic]
+
+# Assignment
+* For each of the code samples below
+    1. Describe what you think is wrong with the code (This means write it down in complete sentences!).
+    2. Confirm your hypothesis by building a memory table
+    3. Double check your work by trying to run the code in an example Repl.
+* Currently your calculator asks the user for two numbers. Create a new repl, where you have a calulator that asks for both 2 numbers and one of the following operators `+ - * / %`. It should then print out the result.
+    * **After** you've finished that, upgrade your calulator again to ask it for 3 numbers and 2 operator. Be sure to also print out the result not only at the end, but after each operator!
+    * What about 4 numbers and 3 operators?
+    * What about 5 numbers and 4 operators?
+    * Did you notice any patterns as to what you were doing? Try writing down what you think the pattern is.
+    * Note: Do **NOT** worry about order of operations.
+
+# Code Samples
+
+{% capture sample-0 %}
+
+```cpp
+#include <iostream>
+
+int main() {
+    int avg_rainfall_us_inches = 31
+    {
+        int avg_rainfall_wa_inches = 38;
+        {
+            int avg_rainfall_seattle_inches = 37;
+        }
+    }
+    std::cout << "Average Rainfall in the US is " << avg_rainfall_us_inches << "inches" << std::endl;
+    std::cout << "Average Rainfall in Washington is " << avg_rainfall_wa_inches << "inches" << std::endl;
+    std::cout << "Average Rainfall in Seattle is " << avg_rainfall_seattle_inches << "inches" << std::endl;
+}
+```
+
+{% endcapture %}
+
+{% capture sample-1 %}
+
+```cpp
+#include <iostream>
+
+int main() {
+    int num_days = 11;
+    std::cout << "Avatar hit $1 billion dollars in " << num_days << std::endl;
+
+    int num_days = 5;
+    std::cout << "Avengers hit $1 billion dollars in " << num_days << std::endl;
+}
+```
+
+{% endcapture %}
+
+{% capture sample-2 %}
+
+```cpp
+#include <iostream>
+
+int main() {
+    {
+        int num_days = 11;
+        std::cout << "Avatar hit $1 billion dollars in " << num_days << std::endl;
+    }
+    {
+        int num_days = 5;
+        std::cout << "Avengers hit $1 billion dollars in " << num_days << stdendl;
+    }
+}
+```
+
+{% endcapture %}
+
+<details><summary>Sample 0</summary>{{sample-0 | markdownify }}</details>
+<details><summary>Sample 1</summary>{{sample-1 | markdownify }}</details>
+<details><summary>Sample 2</summary>{{sample-2 | markdownify }}</details>
+<br />
