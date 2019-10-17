@@ -7,6 +7,7 @@ tags: ["lesson03", "introassignment"]
 video: ULpbUtqboaY
 reference: 
 categories: introassignments
+lesson: 03
 ---
 
 # Key Takeways

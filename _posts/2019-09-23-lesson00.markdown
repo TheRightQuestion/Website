@@ -7,6 +7,7 @@ tags: ["lesson00", "introassignment"]
 video: c8ikA6zw1dI
 reference: 
 categories: introassignments
+lesson: 00
 ---
 # Key Takeways
 * Errors are the way the computer communicates with you regarding your code.

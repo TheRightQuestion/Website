@@ -12,12 +12,10 @@ layout: default
     | {%- for post in site.categories.introassignments -%}
     li
       | {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-      span.post-meta {{ post.date | date: date_format }}
-      h3
-        a.post-link(href='{{ post.url | relative_url }}')
-          | {{ post.title | escape }} | {{ post.subtitle }}
-      | {%- if site.show_excerpts -%}
-      | {{ post.excerpt }}
-      | {%- endif -%}
+      a(href='{{ post.url | relative_url }}')
+        span.post-meta {{ post.date | date: date_format }}
+        span.post-lesson Lesson {{ post.lesson }}      
+        h3.post-link
+            | {{ post.title | escape }} | {{ post.subtitle }}
     | {%- endfor -%}
   | {%- endif -%}
