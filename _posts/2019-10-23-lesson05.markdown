@@ -34,4 +34,337 @@ BUT, if you ever find you are reading from a value that is a `?` in your memory 
 
 
 # Assignment
-Check back later!
+* For each code sample (0 to 2):
+    1. Walk through the memory table for each example.
+    2. Write down what you think each sample does (in complete sentences).
+    3. Execute the code in a repl to validate your assumption. What was wrong / right about your step 2?
+    4. Could we have used better naming to improve our code? How could we have done that?
+* For each code sample (3 to 4):
+    1. Describe what you think is wrong with the code (This means write it down in complete sentences!).
+    2. Confirm your hypothesis by building a memory table
+    3. Double check your work by trying to run the code in an example Repl.
+* For your last 5-number calculator assignment, are there any places you can use functions?
+    * If so, create a new repl that does the exact same task but uses functions. Write down why you created the functions you did.
+    * If not, describe why you aren't able to use functions.
+* For code sample 5:
+    1. Just by reading the code, what is your best guess as to what this code does?
+    2. You're welcome to play around with it in your repl to explore it.
+    3. Note, we haven't yet covered how to do memory tables for this, but we will in the following lesson.
+
+# Code Samples
+
+{% capture sample-0 %}
+
+```cpp
+#include <iostream>
+
+int function1() {
+    std::cout << "Enter a number: ";
+    int a;
+    std::cin >> a;
+    return a;
+}
+
+int main() {
+    int A = function1();
+    if (A % 3 == 0) {
+        std::cout << "Fizz";
+    }
+    if (A % 5 == 0) {
+        std::cout << "Buzz";
+    }
+
+    if (A % 3 > 0) {
+        if (A % 5 > 0) {
+            std::cout << A;
+        }
+    }
+
+    std::cout << std::endl;
+    return 0;
+}
+```
+
+{% endcapture %}
+
+{% capture sample-1 %}
+
+```cpp
+#include <iostream>
+
+float functionB() {
+    std::cout << "Enter a number: ";
+    float a;
+    std::cin >> a;
+    return a;    
+}
+
+float functionA() {
+    std::cout << "Enter a number: ";
+    float a;
+    std::cin >> a;
+    std::cout << "Enter a number: ";
+    float b;
+    std::cin >> b;
+
+    return (a + b) / 2.0;
+}
+
+float functionC() {
+    std::cout << "Enter just 1 number? [y/n] ";
+    char a;
+    std::cin >> a;
+    if (a == 'y') {
+        return functionB();
+        std::cout << "Only gave you one number!" << std::endl;
+    }
+    if (a == 'n') {
+        return functionA();
+    }
+    std::cout << "Wasn't that fun?" << std::endl;
+}
+
+int main() {
+    float r = functionC();
+    std::cout << "Your final result is: " << r << std::endl;
+
+    return 0;
+}
+```
+
+{% endcapture %}
+
+{% capture sample-2 %}
+
+```cpp
+#include <iostream>
+
+int functionA() {
+    std::cout << "Enter a number 0-5? ";
+    int a;
+    std::cin >> a;
+    return a;
+}
+
+int functionB() {
+    int b = functionA();
+    if (b < 0) {
+        return -1;
+    }
+    if (b >= 5) {
+        return -2;
+    }
+    return b;
+}
+
+int functionC() {
+    int c = functionB();
+    if (c < 0) {
+        return -c;
+    }
+    std::cout << "The " << c;
+    if (c == 1) {
+        std::cout << "st";
+    }
+    if (c != 1) {
+        if (c == 2) {
+            std::cout << "nd";
+        }
+        if (c != 2) {
+            if (c == 3) {
+                std::cout << "rd";
+            }
+            if (c != 3) {
+                std::cout << "th";
+            }
+        }
+    }
+
+    char l;
+    if (c == 0) {
+        l = 'a';
+    }
+    if (c == 1) {
+        l = 'e';
+    }
+    if (c == 2) {
+        l = 'i';
+    }
+    if (c == 3) {
+        l = 'o';
+    }
+    if (c == 4) {
+        l = 'u';
+    }
+
+
+    std::cout << " vowel is " << l << std::endl;
+    return 0;
+}
+
+int main() {
+    int status = functionC();
+    if (status == 1) {
+        std::cout << "The number was too small! Try again." << std::endl;
+        status = 1;
+    }
+    if (status == 2) {
+        std::cout << "The number was too big! Try again" << std::endl;
+    }
+
+    return status;
+}
+```
+
+{% endcapture %}
+
+<details><summary>Sample 0</summary>{{sample-0 | markdownify }}</details>
+<details><summary>Sample 1</summary>{{sample-1 | markdownify }}</details>
+<details><summary>Sample 2</summary>{{sample-2 | markdownify }}</details>
+<br />
+
+{% capture sample-3 %}
+
+```cpp
+#include <iostream>
+
+int function1() {
+    std::cout << "Enter a number: ";
+    int user_input;
+    std::cin << user_input;
+    return user_input;
+}
+
+int main() {
+    int user_input = function1();
+    std::cout "You entered user_input. Which is ";
+    if (user_input % 2 == 0) {
+        std::cout << "even";
+    }
+    if (user_input % 2 == 1) {
+        std::cout << "odd";
+    }
+    std::cout >> std::endl;
+    return 0;
+}
+```
+
+{% endcapture %}
+
+{% capture sample-4 %}
+
+```cpp
+#include <iostream>
+
+int main() {
+    char user_input = function1();
+
+    if (user_input == 'V') {
+        std::cout << "You guessed my first initial!" << std::endl;
+    }
+    if (user_input == G) {
+        std::cout << "You guessed my last initial!" << std::endl;
+    }
+    std::cout << "You didn't guess anything correctly, try again!" << std::endl;
+    
+    return 0;
+}
+
+char functionA() {
+    std::cout << "Enter a letter: ";
+    char letter;
+    std::cin >> letter;
+    return letter;
+}
+
+```
+
+{% endcapture %}
+
+<details><summary>Sample 3</summary>{{sample-3 | markdownify }}</details>
+<details><summary>Sample 4</summary>{{sample-4 | markdownify }}</details>
+<br />
+
+{% capture sample-5 %}
+
+```cpp
+
+#include <iostream>
+
+int functionA() {
+    std::cout << "Enter a number 0-5? ";
+    int a;
+    std::cin >> a;
+    return a;
+}
+
+bool functionB(int value) {
+    if (value < 0) {
+        return false;
+    }
+    if (value >= 5) {
+        return false;
+    }
+    return true;
+}
+
+int functionC(int value) {
+    std::cout << "The " << value;
+    if (value == 1) {
+        std::cout << "st";
+    }
+    if (value != 1) {
+        if (value == 2) {
+            std::cout << "nd";
+        }
+        if (value != 2) {
+            if (value == 3) {
+                std::cout << "rd";
+            }
+            if (value != 3) {
+                std::cout << "th";
+            }
+        }
+    }
+
+    char l;
+    if (value == 0) {
+        l = 'a';
+    }
+    if (value == 1) {
+        l = 'e';
+    }
+    if (value == 2) {
+        l = 'i';
+    }
+    if (value == 3) {
+        l = 'o';
+    }
+    if (value == 4) {
+        l = 'u';
+    }
+
+
+    std::cout << " vowel is " << l << std::endl;
+    return 0;
+}
+
+int main() {
+    int number = functionA();
+    
+    bool valid = functionB(number);
+    if (!valid) {
+        std::cout << "This number won't work!" << std::endl;
+        return 1;
+    }
+
+    int status = functionC(number);
+
+    return status;
+}
+
+```
+
+{% endcapture %}
+<details><summary>Sample 5</summary>{{sample-5 | markdownify }}</details>
+<br />
