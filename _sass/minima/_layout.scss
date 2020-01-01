@@ -285,3 +285,7 @@
 .task-list-item+.task-list-item {
   margin-top: 3px;
 }
+
+details:hover {
+  cursor: pointer;
+}
